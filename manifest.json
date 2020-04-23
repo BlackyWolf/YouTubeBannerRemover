@@ -36,8 +36,7 @@
     },
     "permissions": [
         "activeTab",
-        "declarativeContent",
-        "storage"
+        "declarativeContent"
     ],
     "version": "1.0"
 }

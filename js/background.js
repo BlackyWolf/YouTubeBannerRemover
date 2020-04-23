@@ -1,8 +1,4 @@
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.sync.set({ enableYouTubeBannerRemover: true }, function () {
-        console.log('YouTube Banner Remover is enabled.');
-    });
-
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
         chrome.declarativeContent.onPageChanged.addRules([{
             actions: [new chrome.declarativeContent.ShowPageAction()],
@@ -15,27 +11,5 @@ chrome.runtime.onInstalled.addListener(function () {
                 })
             ]
         }]);
-    });
-
-    chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
-        if (changeInfo.status == 'complete' && tab.active) {
-            console.log(tab);
-            // chrome.tabs.executeScript(
-            //     tabId,
-            //     {
-            //         code: `
-            //             (function () {
-            //                 const bannerAttemptOne = document.querySelectorAll('ytd-clarification-renderer');
-    
-            //                 if (bannerAttemptOne) {
-            //                     bannerAttemptOne.forEach((banner) => {
-            //                         banner.remove();
-            //                     });
-            //                 }
-            //             }());
-            //         `
-            //     }
-            // );
-        }
     });
 });
