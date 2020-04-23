@@ -1,0 +1,43 @@
+{
+    "background": {
+        "persistent": false,
+        "scripts": [
+            "js/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "js/content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "description": "Removes the annoying YouTube info banner from the page.",
+    "icons": {
+        "16": "images/icon-16x16.png",
+        "32": "images/icon-32x32.png",
+        "48": "images/icon-48x48.png",
+        "128": "images/icon-128x128.png"
+    },
+    "manifest_version": 2,
+    "name": "YouTube Banner Remover",
+    "page_action": {
+        "default_icon": {
+            "16": "images/icon-16x16.png",
+            "32": "images/icon-32x32.png",
+            "48": "images/icon-48x48.png",
+            "128": "images/icon-128x128.png"
+        },
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "activeTab",
+        "declarativeContent",
+        "storage"
+    ],
+    "version": "1.0"
+}
